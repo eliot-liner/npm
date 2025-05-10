@@ -1,18 +1,20 @@
 {
   "name": "tomato-spoon",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
-  "main": "dist/out.cjs",
-  "module": "dist/out.mjs",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "publish": "npm publish --access=public",
+    "deploy": "npm publish --access=public",
     "build": "npm run cjs:build && npm run esm:build",
-    "cjs:build": "esbuild index.js --outfile=dist/out.cjs --format=cjs",
-    "esm:build": "esbuild index.js --outfile=dist/out.mjs --format=esm"
+    "cjs:build": "tsup index.ts --dts --format cjs",
+    "esm:build": "tsup index.ts --format esm"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "esbuild": "^0.25.4"
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3"
   }
 }
